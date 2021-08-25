@@ -20,6 +20,14 @@ class PrepaidBalanceController extends Controller
             'value' => 'required|in:10000,50000,100000'
         ]);
 
+        if (substr(request('number'), 0, 3) !== '081') {
+
+            return back()
+                ->withInput($request->all())
+                ->with('failed', 'Must be prefixed with 081.');
+
+        }
+
         $admin = ((double) request('value') / 100) * 5;
         $total = $admin + (double) request('value');
 
