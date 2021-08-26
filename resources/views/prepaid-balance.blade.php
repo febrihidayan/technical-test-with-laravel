@@ -32,7 +32,11 @@
                             <x-label for="value" :value="__('Value')" />
 
                             <x-select id="value" name="value" required>
-                                <option hidden>{{ old('value', 'Select value') }}</option>
+                                @if (old('value'))
+                                    <option hidden value="{{ old('value') }}">{{ number_format(old('value'),0,'.','.') }}</option>
+                                @else
+                                    <option hidden>Select value</option>
+                                @endif
                                 <option value="10000">10.000</option>
                                 <option value="50000">50.000</option>
                                 <option value="100000">100.000</option>

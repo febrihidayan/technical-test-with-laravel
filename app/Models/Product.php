@@ -24,6 +24,7 @@ class Product extends Model
     public const CREATED = 'created';
     public const CONFIRMED = 'confirmed';
     public const CANCELLED = 'cancelled';
+    public const FAILED = 'failed';
 
     public const PAID = 'paid';
     public const UNPAID = 'unpaid';

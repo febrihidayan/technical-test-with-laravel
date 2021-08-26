@@ -37,7 +37,7 @@
                                             Pay now
                                         </x-link>
 
-                                    @elseif (!$item->statusPayment() && $item->payment_status === $item::UNPAID && $item->status === $item::CREATED)
+                                    @elseif ($item->status === $item::FAILED)
 
                                         <strong class="text-yellow-500">Failed</strong>
 
