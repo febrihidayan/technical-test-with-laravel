@@ -56,6 +56,7 @@ class PaymentController extends Controller
                 $rate = $time >= '09' && $time <= '17' ? 90 : 40;
 
                 $rageProduct = Product::whereDate('created_at', now()->today())
+                    ->owner()
                     ->whereNull('address')
                     ->where( function($query) {
                         return $query
